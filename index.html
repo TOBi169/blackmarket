@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>اسئلة بلاك ماركت</title>
+  <style>
+    body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; background-color: #f4f4f4; }
+    .question { margin-bottom: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .question h3 { margin-bottom: 10px; }
+    button { padding: 10px 20px; margin-top: 20px; font-size: 16px; }
+    .result { font-weight: bold; font-size: 18px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>اسئلة بلاك ماركت</h1>
+  <form id="quizForm">
+    <div class="question">
+      <h3>1- هل يسمح خطف أو تلويت المسعفين؟</h3>
+      <label><input type="radio" name="q1" value="لا"> لا</label>
+      <label><input type="radio" name="q1" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>2- هل يسمح بالخطف داخل المناطق الآمنة؟</h3>
+      <label><input type="radio" name="q2" value="لا"> لا</label>
+      <label><input type="radio" name="q2" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>3- إذا ركب الشخص المستهدف في السيارة،كم يجب عليك الانتظار؟</h3>
+      <label><input type="radio" name="q3" value="15 ثانيه"> 15 ثانيه</label>
+      <label><input type="radio" name="q3" value="30 ثانيه"> 30 ثانيه</label>
+    </div>
+    <div class="question">
+      <h3>4- عند تنفيذ عمليات سرقة مثل سرقة البقاله(سكربت) هل يجب على العصابة ارسال إعلان بالسرقة؟</h3>
+      <label><input type="radio" name="q4" value="لا"> لا</label>
+      <label><input type="radio" name="q4" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>5- كم المده المسموحه ل احتجاز رهينة</h3>
+      <label><input type="radio" name="q5" value="15 دقايق"> 15 دقايق</label>
+      <label><input type="radio" name="q5" value="30 دقايق"> 30 دقايق</label>
+    </div>
+    <div class="question">
+      <h3>6- هل يستطيع رجل العصابه توزيع أسلحة العصابة على المواطنين؟</h3>
+      <label><input type="radio" name="q6" value="لا"> لا</label>
+      <label><input type="radio" name="q6" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>7- هل يحق لك قتل شخص في حال دخوله إلى مقر العصابة؟</h3>
+      <label><input type="radio" name="q7" value="نعم"> نعم</label>
+      <label><input type="radio" name="q7" value="لا"> لا</label>
+    </div>
+    <div class="question">
+      <h3>8- بعد قتلك لشخص و تلويته هل يحق لك خطفه؟</h3>
+      <label><input type="radio" name="q8" value="لا"> لا</label>
+      <label><input type="radio" name="q8" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>9- هل يسمح حمل شخص من المنطقة الآمنة إلى المنطقة غير الآمنة وهو ميت؟</h3>
+      <label><input type="radio" name="q9" value="لا"> لا</label>
+      <label><input type="radio" name="q9" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>10- هل يحق لك مداهمة أي مقر عصابة أو مقر حكومي دون إصدار إعلان؟</h3>
+      <label><input type="radio" name="q10" value="لا"> لا</label>
+      <label><input type="radio" name="q10" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>11- هل يسمح ل اعضاء العصابه استخدام الطائرات البلاك بدون اذن؟</h3>
+      <label><input type="radio" name="q11" value="لا"> لا</label>
+      <label><input type="radio" name="q11" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>12- هل يسمح إهانة أي عصابة او رجل أمن عبر الإعلانات؟</h3>
+      <label><input type="radio" name="q12" value="لا"> لا</label>
+      <label><input type="radio" name="q12" value="نعم"> نعم</label>
+    </div>
+    <div class="question">
+      <h3>13- هل يحق لك كلبشه المواطنين في المناطق الأمنه؟</h3>
+      <label><input type="radio" name="q13" value="لا"> لا</label>
+      <label><input type="radio" name="q13" value="نعم"> نعم</label>
+    </div>
+    <button type="button" onclick="checkAnswers()">عرض النتائج</button>
+  </form>
+  <div class="result" id="result"></div>
+
+  <script>
+    const answers = {
+      q1: "لا",
+      q2: "لا",
+      q3: "15 ثانيه",
+      q4: "لا",
+      q5: "15 دقايق",
+      q6: "لا",
+      q7: "نعم",
+      q8: "لا",
+      q9: "لا",
+      q10: "لا",
+      q11: "لا",
+      q12: "لا",
+      q13: "لا"
+    };
+
+    function checkAnswers() {
+      let correct = 0;
+      let total = Object.keys(answers).length;
+      for (let key in answers) {
+        let radios = document.getElementsByName(key);
+        for (let radio of radios) {
+          if (radio.checked && radio.value === answers[key]) {
+            correct++;
+          }
+        }
+      }
+      let wrong = total - correct;
+      document.getElementById("result").innerText = `لقد أجبت بشكل صحيح على ${correct} من أصل ${total} سؤال، وعدد الإجابات الخاطئة هو ${wrong}.`;
+    }
+  </script>
+</body>
+</html>
